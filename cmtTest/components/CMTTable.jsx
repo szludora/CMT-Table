@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useEffect } from "react";
 import Field from "./Field";
 
 export default function CMTTable() {
@@ -5,11 +7,23 @@ export default function CMTTable() {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
   ];
 
+  const [counter, setCounter] = useState(1);
+
+  useEffect(() => {}, [counter]);
+
+  const click = () => {
+    if (counter === 3) {
+      setCounter(1);
+    } else {
+      setCounter(counter + 1);
+    }
+  };
+
   return (
     <>
-      <div id="cmtTable">
+      <div id="cmtTable" onClick={click}>
         {fields.map((field, index) => (
-          <Field key={field} value={index}></Field>
+          <Field key={index} index={index} counter={counter}></Field>
         ))}
       </div>
     </>

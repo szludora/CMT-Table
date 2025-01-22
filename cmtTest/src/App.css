@@ -1,20 +1,29 @@
 #root {
+  box-sizing: border-box;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
+span {
+  font-size: 1em;
+  font-weight: 700;
+}
+
 #cmtTable {
   display: grid;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns: repeat(5, 4em);
   border: black 1px solid;
   margin-bottom: 4em;
 }
 
-.field{
-  margin: 0;
-  padding: 2em;
-  display: grid;
+.field {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4em;
+  height: 4em;
   border: black 1px solid;
 }
