@@ -20,20 +20,22 @@ export default function Field(props) {
     }
   }, [props.value]);
 
-  const click = () => {
-    switch (props.counter) {
-      case 1:
-        props.setStatus(props.index, 1);
-        props.fields[props.index] = 1;
-        break;
-      case 2:
-        props.setStatus(props.index, 2);
-        props.fields[props.index] = 2;
-        break;
-      case 3:
-        props.setStatus(props.index, 3);
-        props.fields[props.index] = 3;
-        break;
+  const click = (event) => {
+    if (event.target.innerHTML == " ") {
+      switch (props.counter) {
+        case 1:
+          props.setStatus(props.index, 1);
+          props.fields[props.index] = 1;
+          break;
+        case 2:
+          props.setStatus(props.index, 2);
+          props.fields[props.index] = 2;
+          break;
+        case 3:
+          props.setStatus(props.index, 3);
+          props.fields[props.index] = 3;
+          break;
+      }
     }
   };
 

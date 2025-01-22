@@ -10,10 +10,13 @@ function App() {
   const setStatus = (id, counter) => CMT.setStatus(id, counter);
 
   const [fields, setFields] = useState([...CMT.getFields()]);
+  const [counter, setCounter] = useState(1);
 
   useEffect(() => {}, [fields]);
 
   const reset = () => {
+    setCounter(1);
+    console.log(fields);
     CMT.resetFields();
     const newFields = [...CMT.getFields()];
     setFields(newFields);
@@ -22,7 +25,12 @@ function App() {
   return (
     <>
       <h3 style={{ marginBottom: "2em" }}>CMT Table Game</h3>
-      <CMTTable fields={fields} setStatus={setStatus}></CMTTable>
+      <CMTTable
+        fields={fields}
+        setStatus={setStatus}
+        setCounter={setCounter}
+        counter={counter}
+      ></CMTTable>
       <Button onClick={reset} variant="primary" style={{ marginBottom: "4em" }}>
         Reset
       </Button>

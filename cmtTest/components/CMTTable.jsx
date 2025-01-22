@@ -1,14 +1,11 @@
-import { useState } from "react";
 import Field from "./Field";
 
 export default function CMTTable(props) {
-  const [counter, setCounter] = useState(1);
-
   const click = () => {
-    if (counter === 3) {
-      setCounter(1);
+    if (props.counter === 3) {
+      props.setCounter(1);
     } else {
-      setCounter(counter + 1);
+      props.setCounter(props.counter + 1);
     }
   };
 
@@ -20,7 +17,7 @@ export default function CMTTable(props) {
             key={index}
             index={index}
             value={field}
-            counter={counter}
+            counter={props.counter}
             fields={props.fields}
             setStatus={props.setStatus}
           ></Field>
