@@ -1,0 +1,20 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+#cmtTable {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  border: black 1px solid;
+  margin-bottom: 4em;
+}
+
+.field{
+  margin: 0;
+  padding: 2em;
+  display: grid;
+  border: black 1px solid;
+}
