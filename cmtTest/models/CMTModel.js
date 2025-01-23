@@ -19,52 +19,71 @@ export default class CMTModel {
 
   countMatchingLines(fields, value) {
     const size = 5;
-    let count = 0;
+    let highlightedIndices = [];
 
-    for (let i = 0; i < size; i++) {
+    const checkConsecutive = (indices, fields, value) => {
       let consecutiveCount = 0;
-      for (let j = 0; j < size; j++) {
-        if (fields[i * size + j] === value) {
+      let currentIndices = [];
+      for (const index of indices) {
+        if (fields[index] === value) {
           consecutiveCount++;
+          currentIndices.push(index);
+        } else {
+          if (consecutiveCount >= 3) {
+            highlightedIndices.push(...currentIndices);
+          }
+          consecutiveCount = 0;
+          currentIndices = [];
         }
       }
       if (consecutiveCount >= 3) {
-        count++;
+        highlightedIndices.push(...currentIndices);
       }
-    }
+    };
 
+    // Check rows
     for (let i = 0; i < size; i++) {
-      let consecutiveCount = 0;
-      for (let j = 0; j < size; j++) {
-        if (fields[j * size + i] === value) {
-          consecutiveCount++;
-        }
-      }
-      if (consecutiveCount >= 3) {
-        count++;
-      }
+      const rowIndices = Array.from({ length: size }, (_, j) => i * size + j);
+      checkConsecutive(rowIndices, fields, value);
     }
 
-    let consecutiveCountMainDiagonal = 0;
+    // Check columns
     for (let i = 0; i < size; i++) {
-      if (fields[i * (size + 1)] === value) {
-        consecutiveCountMainDiagonal++;
-      }
-    }
-    if (consecutiveCountMainDiagonal >= 3) {
-      count++;
+      const colIndices = Array.from({ length: size }, (_, j) => j * size + i);
+      checkConsecutive(colIndices, fields, value);
     }
 
-    let consecutiveCountAntiDiagonal = 0;
-    for (let i = 0; i < size; i++) {
-      if (fields[i * (size - 1) + (size - 1)] === value) {
-        consecutiveCountAntiDiagonal++;
+    // Check main diagonal
+    const mainDiagonalIndices = Array.from(
+      { length: size },
+      (_, i) => i * (size + 1)
+    );
+    checkConsecutive(mainDiagonalIndices, fields, value);
+
+    // Check all anti-diagonals
+    for (let startRow = 0; startRow < size; startRow++) {
+      let indices = [];
+      for (
+        let row = startRow, col = 0;
+        row < size && col < size;
+        row++, col++
+      ) {
+        indices.push(row * size + (size - 1 - col));
       }
+      checkConsecutive(indices, fields, value);
     }
-    if (consecutiveCountAntiDiagonal >= 3) {
-      count++;
+    for (let startCol = 1; startCol < size; startCol++) {
+      let indices = [];
+      for (
+        let row = 0, col = startCol;
+        row < size && col < size;
+        row++, col++
+      ) {
+        indices.push(row * size + (size - 1 - col));
+      }
+      checkConsecutive(indices, fields, value);
     }
 
-    return count;
+    return highlightedIndices;
   }
 }
