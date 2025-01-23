@@ -1,9 +1,11 @@
 import "./App.css";
+import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import CMTTable from "../components/CMTTable";
 import CMTModel from "../models/CMTModel";
 import { useEffect } from "react";
 import { useState } from "react";
+import useThemeContext from "../contexts/ThemeContext";
 
 function App() {
   const CMT = new CMTModel();
@@ -12,8 +14,9 @@ function App() {
   const [fields, setFields] = useState(Array(25).fill(0));
   const [counter, setCounter] = useState(1);
 
-  useEffect(() => {
-  }, [fields, counter]);
+  const { darkTheme } = useThemeContext();
+
+  useEffect(() => {}, [fields, counter]);
 
   const reset = () => {
     setCounter(1);
@@ -25,18 +28,24 @@ function App() {
 
   return (
     <>
-      <h3 style={{ marginBottom: "2em" }}>CMT Table Game</h3>
-      <CMTTable
-        fields={fields}
-        setStatus={setStatus}
-        setCounter={setCounter}
-        counter={counter}
-        countMatchingLines={CMT.countMatchingLines}
-      ></CMTTable>
-      <Button onClick={reset} variant="primary" style={{ marginBottom: "4em" }}>
-        Reset
-      </Button>
-      <p>Készítette: Szlucska Dóra</p>
+      <Container fluid className={`full-width ${darkTheme.bg}`}>
+        <h3 style={{ marginBottom: "2em" }}>CMT Table Game</h3>
+        <CMTTable
+          fields={fields}
+          setStatus={setStatus}
+          setCounter={setCounter}
+          counter={counter}
+          countMatchingLines={CMT.countMatchingLines}
+        ></CMTTable>
+        <Button
+          onClick={reset}
+          variant="primary"
+          style={{ marginBottom: "4em" }}
+        >
+          Reset
+        </Button>
+        <p>Made by: Dóra Szlucska</p>
+      </Container>
     </>
   );
 }
