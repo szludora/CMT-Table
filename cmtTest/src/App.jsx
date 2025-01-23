@@ -13,10 +13,6 @@ function App() {
   const [counter, setCounter] = useState(1);
 
   useEffect(() => {
-    console.log(fields);
-    console.log("C: ", CMT.countMatchingLines(fields, 1));
-    console.log("M: ", CMT.countMatchingLines(fields, 2));
-    console.log("T: ", CMT.countMatchingLines(fields, 3));
   }, [fields, counter]);
 
   const reset = () => {
