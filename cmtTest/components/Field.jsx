@@ -10,11 +10,11 @@ export default function Field(props) {
     if (isHighlighted) {
       switch (value) {
         case 1:
-          return "green";
+          return "#0dd60d";
         case 2:
-          return "blue";
+          return "#66b9ff";
         case 3:
-          return "red";
+          return "#ff7474";
         default:
           return "black";
       }
@@ -61,7 +61,7 @@ export default function Field(props) {
   return (
     <>
       <span
-        className={isHighlighted ? "highlighted" : ""}
+        className={isHighlighted ? " field highlighted" : "field"}
         style={{ color: getLetterColor(props.value) }}
         onClick={click}
       >
