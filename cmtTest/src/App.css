@@ -11,12 +11,6 @@ span {
   font-weight: 700;
 }
 
-#cmtTable {
-  display: grid;
-  grid-template-columns: repeat(5, 4em);
-  border: black 1px solid;
-  margin-bottom: 4em;
-}
 
 .field {
   text-align: center;
@@ -26,4 +20,27 @@ span {
   width: 4em;
   height: 4em;
   border: black 1px solid;
+}
+
+#cmtTable {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 oszlopos rács */
+  gap: 5px;
+  margin-bottom: 4em;
+}
+
+span {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  text-align: center;
+}
+
+.highlighted {
+  background-color: red;
+  color: black;
 }

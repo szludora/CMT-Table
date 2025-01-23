@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
 export default function Field(props) {
-  const [letter, setLetter] = useState(" ");
+  const [letter, setLetter] = useState(" ");  
 
-  useEffect(() => {
+  useEffect(() => {    
     switch (props.value) {
       case 1:
         setLetter("C");
@@ -41,7 +41,7 @@ export default function Field(props) {
 
   return (
     <>
-      <span className="field" onClick={click}>
+      <span className="" onClick={click}>
         {letter}
       </span>
     </>

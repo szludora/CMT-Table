@@ -9,10 +9,15 @@ function App() {
   const CMT = new CMTModel();
   const setStatus = (id, counter) => CMT.setStatus(id, counter);
 
-  const [fields, setFields] = useState([...CMT.getFields()]);
+  const [fields, setFields] = useState(Array(25).fill(0));
   const [counter, setCounter] = useState(1);
 
-  useEffect(() => {}, [fields]);
+  useEffect(() => {
+    console.log(fields);
+    console.log("C: ", CMT.countMatchingLines(fields, 1));
+    console.log("M: ", CMT.countMatchingLines(fields, 2));
+    console.log("T: ", CMT.countMatchingLines(fields, 3));
+  }, [fields, counter]);
 
   const reset = () => {
     setCounter(1);
@@ -30,6 +35,7 @@ function App() {
         setStatus={setStatus}
         setCounter={setCounter}
         counter={counter}
+        countMatchingLines={CMT.countMatchingLines}
       ></CMTTable>
       <Button onClick={reset} variant="primary" style={{ marginBottom: "4em" }}>
         Reset
