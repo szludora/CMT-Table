@@ -1,9 +1,28 @@
 import { useState, useEffect } from "react";
 
 export default function Field(props) {
-  const [letter, setLetter] = useState(" ");  
+  const [letter, setLetter] = useState(" ");
+  const isHighlighted = [1, 2, 3].some((value) =>
+    props.countMatchingLines(props.fields, value).includes(props.index)
+  );
 
-  useEffect(() => {    
+  const getLetterColor = (value) => {
+    if (isHighlighted) {
+      switch (value) {
+        case 1:
+          return "green";
+        case 2:
+          return "blue";
+        case 3:
+          return "red";
+        default:
+          return "black";
+      }
+    }
+    return "black";
+  };
+
+  useEffect(() => {
     switch (props.value) {
       case 1:
         setLetter("C");
@@ -41,7 +60,11 @@ export default function Field(props) {
 
   return (
     <>
-      <span className="" onClick={click}>
+      <span
+        className={isHighlighted ? "highlighted" : ""}
+        style={{ color: getLetterColor(props.value) }}
+        onClick={click}
+      >
         {letter}
       </span>
     </>

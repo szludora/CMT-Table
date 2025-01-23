@@ -21,6 +21,7 @@ export default function CMTTable(props) {
           counter={props.counter}
           fields={props.fields}
           setStatus={props.setStatus}
+          countMatchingLines={props.countMatchingLines}
         />
       ))}
     </div>
