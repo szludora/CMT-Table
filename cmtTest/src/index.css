@@ -69,6 +69,11 @@ background-color: rgb(81,81,81);
   width: 100vw;
 }
 
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
 #cmtTable {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -112,6 +117,12 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 @media (prefers-color-scheme: light) {
