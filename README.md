@@ -7,6 +7,6 @@ The game is a grid-based puzzle where the player must match consecutive elements
 
 
 [[
-github page]](https://szludora.github.io/cmtTest2/)
+github page]](https://szludora.github.io/CMT-Table/)
 
 Made with vite + react
