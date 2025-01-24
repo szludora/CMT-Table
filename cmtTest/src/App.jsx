@@ -11,20 +11,23 @@ function App() {
   const CMT = new CMTModel();
   const setStatus = (id, counter) => CMT.setStatus(id, counter);
 
-  const [fields, setFields] = useState(Array(25).fill(0));
+  const [fields, setFields] = useState(CMT.getFields());
   const [counter, setCounter] = useState(1);
 
   const { darkTheme } = useThemeContext();
 
-  useEffect(() => {}, [fields, counter]);
+  useEffect(() => {
+    console.log(CMT.getMatches(fields));    
+  }, [counter]);
 
   const reset = () => {
     setCounter(1);
-    console.log(fields);
+    console.log("Resetting fields:", fields);
     CMT.resetFields();
-    const newFields = [...CMT.getFields()];
+    const newFields = CMT.getFields(); // Ne másold, hanem használd a CMT-t
     setFields(newFields);
   };
+  
 
   return (
     <>
@@ -35,7 +38,7 @@ function App() {
           setStatus={setStatus}
           setCounter={setCounter}
           counter={counter}
-          countMatchingLines={CMT.countMatchingLines}
+          getHighlightedIndices={CMT.getHighlightedIndices}
         ></CMTTable>
         <Button
           onClick={reset}

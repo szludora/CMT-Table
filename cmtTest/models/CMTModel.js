@@ -1,8 +1,17 @@
 export default class CMTModel {
   #fields;
+  #m;
+  #isProcessing;
 
   constructor() {
     this.#fields = Array(25).fill(0);
+    this.#m = 0;
+    this.#isProcessing = false;
+    this.getHighlightedIndices = this.getHighlightedIndices.bind(this);
+  }
+
+  getM() {
+    return this.#m;
   }
 
   getFields() {
@@ -16,41 +25,100 @@ export default class CMTModel {
   resetFields() {
     this.#fields = Array(25).fill(0);
   }
-  
-  countMatchingLines(fields, value) {
+
+  getHighlightedIndices(fields, value) {
+    if (this.#isProcessing) return [];
+
+    this.#isProcessing = true;
     const size = 5;
     let highlightedIndices = [];
-  
+    let newSequencesCount = 0;
+
     const checkConsecutive = (indices) => {
       let count = 0, current = [];
-      for (const i of indices) {
+
+      indices.forEach(i => {
         if (fields[i] === value) {
-          count++; current.push(i);
-        } else if (count >= 3) { highlightedIndices.push(...current); count = 0; current = []; }
+          count++;
+          current.push(i);
+        } else {
+          if (count >= 3) {
+            newSequencesCount++;
+            highlightedIndices.push(...current);
+          }
+          count = 0;
+          current = [];
+        }
+      });
+
+      if (count >= 3) {
+        newSequencesCount++;
+        highlightedIndices.push(...current);
       }
-      if (count >= 3) highlightedIndices.push(...current);
     };
-  
+
     for (let i = 0; i < size; i++) {
-      checkConsecutive(Array.from({ length: size }, (_, j) => i * size + j)); // row
-      checkConsecutive(Array.from({ length: size }, (_, j) => j * size + i)); // col
+      let rowIndices = Array.from({ length: size }, (_, j) => i * size + j);
+      let colIndices = Array.from({ length: size }, (_, j) => j * size + i);
+      checkConsecutive(rowIndices);
+      checkConsecutive(colIndices);
     }
-  
+
     for (let r = 0; r < size - 2; r++) {
       for (let c = 0; c < size - 2; c++) {
-        checkConsecutive([r * size + c, (r + 1) * size + c + 1, (r + 2) * size + c + 2]); // diagonal
-        checkConsecutive([r * size + c + 2, (r + 1) * size + c + 1, (r + 2) * size + c]); // anti diagonal
+        checkConsecutive([r * size + c, (r + 1) * size + c + 1, (r + 2) * size + c + 2]);
+        checkConsecutive([r * size + c + 2, (r + 1) * size + c + 1, (r + 2) * size + c]);
       }
     }
-  
-    for (let r = size - 1; r > 1; r--) {
-      for (let c = 0; c < size - 2; c++) {
-        checkConsecutive([r * size + c, (r - 1) * size + c + 1, (r - 2) * size + c + 2]); // reverse diagonal
-        checkConsecutive([r * size + c + 2, (r - 1) * size + c + 1, (r - 2) * size + c]); // reverse anti diagonal
-      }
-    }
-  
+
+    this.#isProcessing = false;
+
     return highlightedIndices;
   }
-  
+
+  getMatches(fields) {
+    const size = 5;
+    let matches = [];
+
+    const directions = [
+      { row: 0, col: 1 },
+      { row: 1, col: 0 },
+      { row: 1, col: 1 },
+      { row: 1, col: -1 },
+    ];
+
+    const findMatch = (row, col, direction) => {
+      let match = [row * size + col];
+      let i = 1;
+
+      while (
+        row + i * direction.row < size &&
+        col + i * direction.col < size &&
+        col + i * direction.col >= 0 &&
+        fields[(row + i * direction.row) * size + (col + i * direction.col)] === fields[row * size + col]
+      ) {
+        match.push((row + i * direction.row) * size + (col + i * direction.col));
+        i++;
+      }
+
+      return match.length >= 3 ? match : null;
+    };
+
+    for (let row = 0; row < size; row++) {
+      for (let col = 0; col < size; col++) {
+        const currentField = fields[row * size + col];
+
+        if (currentField === 0) continue;
+
+        directions.forEach(direction => {
+          const match = findMatch(row, col, direction);
+          if (match && !matches.some(existingMatch => match.every(index => existingMatch.includes(index)))) {
+            matches.push(match);
+          }
+        });
+      }
+    }
+
+    return matches.length;
+  }
 }

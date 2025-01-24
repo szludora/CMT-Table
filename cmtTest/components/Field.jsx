@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 export default function Field(props) {
   const [letter, setLetter] = useState(" ");
   const isHighlighted = [1, 2, 3].some((value) =>
-    props.countMatchingLines(props.fields, value).includes(props.index)
+    props.getHighlightedIndices(props.fields, value).includes(props.index)
   );
 
   const getLetterColor = (value) => {
