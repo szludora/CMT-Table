@@ -1,11 +1,8 @@
-Easy "CMT Board Game"
+# React + Vite
 
-This app is a CMT Table game where users can input their names and play a game involving sequences.
-The app allows users to toggle between light and dark themes.
-Once the game is completed, it displays the number of lines the player has matched, with congratulatory or retry messages based on the results.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-![image](https://github.com/user-attachments/assets/42e68405-e81e-4ff1-a52b-83d528f0591f)
-![image](https://github.com/user-attachments/assets/33de69ab-d0a2-4a3a-afad-7a9abf480ffb)
+Currently, two official plugins are available:
 
-
-made with vite + react
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
