@@ -1,7 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import replace from '@rollup/plugin-replace';
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  base: '',
+  optimizeDeps: {
+    include: ["react-bootstrap"],
+  },
+  plugins: [
+    replace({
+      preventAssignment: true,
+      'use client': '',
+    })
+  ]
+});
