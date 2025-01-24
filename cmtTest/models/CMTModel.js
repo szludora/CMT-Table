@@ -2,11 +2,13 @@ export default class CMTModel {
   #fields;
   #m;
   #isProcessing;
+  #isCompleted;
 
   constructor() {
     this.#fields = Array(25).fill(0);
     this.#m = 0;
     this.#isProcessing = false;
+    this.#isCompleted = false;
     this.getHighlightedIndices = this.getHighlightedIndices.bind(this);
   }
 
@@ -24,6 +26,11 @@ export default class CMTModel {
 
   resetFields() {
     this.#fields = Array(25).fill(0);
+    this.#isCompleted = false;
+  }
+
+  isCompleted() {
+    return this.#isCompleted;
   }
 
   getHighlightedIndices(fields, value) {
@@ -71,8 +78,12 @@ export default class CMTModel {
       }
     }
 
-    this.#isProcessing = false;
+    const hasZero = fields.some((field) => field === 0);
+    if (!hasZero) {
+      this.#isCompleted = true;
+    }
 
+    this.#isProcessing = false;
     return highlightedIndices;
   }
 
