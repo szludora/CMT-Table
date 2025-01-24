@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useRef } from "react";
 import Field from "./Field";
+import placing from "../sounds/placing.wav";
 
 export default function CMTTable(props) {
+  const audioRef = useRef(null);
+
   const click = (event) => {
     if (event.target.innerHTML === " ") {
+      if (audioRef.current) {
+        audioRef.current.currentTime = 0;
+        audioRef.current.play();
+      }
+
       if (props.counter === 3) {
         props.setCounter(1);
       } else {
@@ -25,6 +33,9 @@ export default function CMTTable(props) {
           getHighlightedIndices={props.getHighlightedIndices}
         />
       ))}
+      <audio ref={audioRef}>
+        <source src={placing} type="audio/wav" />
+      </audio>
     </div>
   );
 }

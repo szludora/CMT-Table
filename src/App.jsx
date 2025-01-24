@@ -1,14 +1,14 @@
-import React from "react";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
-import CMTTable from "../components/CMTTable";
-import CMTModel from "../models/CMTModel";
-import { useEffect } from "react";
-import { useState } from "react";
-import useThemeContext from "../contexts/ThemeContext";
+import CMTTable from "./components/CMTTable";
+import CMTModel from "./models/CMTModel";
+import React, { useEffect, useState } from "react";
+import useThemeContext from "./contexts/ThemeContext";
 import Col from "react-bootstrap/esm/Col";
+import yey from "./sounds/yey.mp3";
+import fail from "./sounds/fail.wav";
 import "./stars.css";
 import "./App.css";
 
@@ -21,7 +21,6 @@ function App() {
   const [submitted, setSubmitted] = useState(false);
   const [fields, setFields] = useState(CMT.getFields());
   const [counter, setCounter] = useState(1);
-
   const { darkTheme, toggleTheme, isDarkTheme } = useThemeContext();
 
   useEffect(() => {
@@ -49,7 +48,7 @@ function App() {
   return (
     <>
       <Container>
-        <section class="wrapper">
+        <section className="wrapper">
           <div id="stars"></div>
           <div id="stars2"></div>
           <div id="stars3"></div>
@@ -78,12 +77,46 @@ function App() {
             <div className="result">
               {isCompleted ? (
                 matches !== 0 ? (
-                  <p>
+                  <div className="confetti-container">
+                    <audio autoPlay>
+                      <source src={yey} type="audio/mpeg" />
+                    </audio>
                     &nbsp;&nbsp;&nbsp;Congratulations, {name}! You have{" "}
                     {matches} lines!
-                  </p>
+                    <picture>
+                      <source
+                        srcSet="https://fonts.gstatic.com/s/e/notoemoji/latest/1f38a/512.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f38a/512.gif"
+                        alt="🎊"
+                        width="50"
+                        height="50"
+                        className="confetti"
+                      />
+                    </picture>
+                  </div>
                 ) : (
-                  <p>&nbsp;&nbsp;&nbsp;You have no lines, try again!</p>
+                  <div>
+                    <audio autoPlay>
+                      <source src={fail} type="audio/wav" />
+                    </audio>
+                    <picture>
+                      <source
+                        srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f622/512.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f622/512.gif"
+                        alt="😢"
+                        width="35"
+                        height="35"
+                        className="confetti"
+                      />
+                    </picture>
+                    <p>&nbsp;&nbsp;&nbsp;You have no lines, try again!</p>
+                  </div>
                 )
               ) : (
                 <p style={{ visibility: "hidden" }}></p>
@@ -91,7 +124,6 @@ function App() {
             </div>
           </div>
         </div>
-
         <div className={`${darkTheme.game} game`}>
           <h3 style={{ paddingTop: "2em", paddingBottom: "2em" }}>
             CMT Table Game
@@ -113,14 +145,14 @@ function App() {
                   <Button
                     className="submitButton"
                     type="submit"
-                    style={{ margin: "1em 1em 2em auto", width: "4em" }}
+                    style={{ margin: "auto auto 2em auto", width: "4em" }}
                   >
                     Start
                   </Button>
                   <Button
                     className="themeButton"
                     onClick={toggleTheme}
-                    style={{ margin: "1em auto 2em auto", width: "8em" }}
+                    style={{ margin: "auto auto 2em auto", width: "8em" }}
                   >
                     Toggle Theme
                   </Button>
@@ -142,14 +174,14 @@ function App() {
                 <Button
                   className="resetButton"
                   onClick={reset}
-                  style={{ margin: "auto 1em 3em auto", width: "4em" }}
+                  style={{ margin: "auto 1em 2em auto", width: "4em" }}
                 >
                   Reset
                 </Button>
                 <Button
                   className="themeButton"
                   onClick={toggleTheme}
-                  style={{ margin: "auto auto 3em 1em", width: "8em" }}
+                  style={{ margin: "auto auto 2em auto", width: "8em" }}
                 >
                   Toggle Theme
                 </Button>

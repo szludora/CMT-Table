@@ -5,14 +5,7 @@ export default class CMTModel {
   #isCompleted;
 
   constructor() {
-   // this.#fields = Array(25).fill(0);
-    this.#fields = [
-      0,3,1,2,2,
-      2,3,2,1,3,
-      3,3,3,3,2,
-      2,3,1,2,2,
-      1,3,1,3,1]
-
+    this.#fields = Array(25).fill(0);
     this.#m = 0;
     this.#isProcessing = false;
     this.#isCompleted = false;
@@ -49,9 +42,10 @@ export default class CMTModel {
     let newSequencesCount = 0;
 
     const checkConsecutive = (indices) => {
-      let count = 0, current = [];
+      let count = 0,
+        current = [];
 
-      indices.forEach(i => {
+      indices.forEach((i) => {
         if (fields[i] === value) {
           count++;
           current.push(i);
@@ -80,8 +74,16 @@ export default class CMTModel {
 
     for (let r = 0; r < size - 2; r++) {
       for (let c = 0; c < size - 2; c++) {
-        checkConsecutive([r * size + c, (r + 1) * size + c + 1, (r + 2) * size + c + 2]);
-        checkConsecutive([r * size + c + 2, (r + 1) * size + c + 1, (r + 2) * size + c]);
+        checkConsecutive([
+          r * size + c,
+          (r + 1) * size + c + 1,
+          (r + 2) * size + c + 2,
+        ]);
+        checkConsecutive([
+          r * size + c + 2,
+          (r + 1) * size + c + 1,
+          (r + 2) * size + c,
+        ]);
       }
     }
 
@@ -113,9 +115,12 @@ export default class CMTModel {
         row + i * direction.row < size &&
         col + i * direction.col < size &&
         col + i * direction.col >= 0 &&
-        fields[(row + i * direction.row) * size + (col + i * direction.col)] === fields[row * size + col]
+        fields[(row + i * direction.row) * size + (col + i * direction.col)] ===
+          fields[row * size + col]
       ) {
-        match.push((row + i * direction.row) * size + (col + i * direction.col));
+        match.push(
+          (row + i * direction.row) * size + (col + i * direction.col)
+        );
         i++;
       }
 
@@ -128,9 +133,14 @@ export default class CMTModel {
 
         if (currentField === 0) continue;
 
-        directions.forEach(direction => {
+        directions.forEach((direction) => {
           const match = findMatch(row, col, direction);
-          if (match && !matches.some(existingMatch => match.every(index => existingMatch.includes(index)))) {
+          if (
+            match &&
+            !matches.some((existingMatch) =>
+              match.every((index) => existingMatch.includes(index))
+            )
+          ) {
             matches.push(match);
           }
         });
