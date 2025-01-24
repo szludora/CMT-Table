@@ -23,7 +23,7 @@ body {
   width: 100%;
 }
 
-.white{
+.white {
   border-color: white;
 }
 
@@ -42,6 +42,91 @@ body {
   text-align: center;
 }
 
+.resultBoxWrapper {
+  width: 26em;
+  height: 3em;
+}
+
+.resultBox {
+  border-radius: 2em;
+  margin-top: 3em;
+  width: 26em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3em;
+  position: relative;
+  animation: slideInFromTop 0.4s ease-out forwards;
+}
+
+.success-dark {
+  background: rgb(174, 236, 174);
+}
+.success-light {
+  background: rgb(106, 141, 106);
+}
+.no-success-dark {
+  background: rgb(190, 97, 97);
+  color: white;
+}
+.no-success-light {
+  background: rgb(245, 122, 122);
+}
+
+.themeButton {
+  border: none;
+  background: rgb(96, 100, 100);
+}
+
+.resetButton,
+.submitButton {
+  border: none;
+  background: rgb(37, 159, 239);
+}
+.submitButton:hover,
+.resetButton:hover {
+  background: rgb(25, 108, 164);
+}
+
+.themeButton:hover {
+  background: rgb(46, 46, 46);
+}
+
+.result {
+  margin-top: 5px;
+  align-items: center;
+  border-radius: 2em;
+  padding: 0.4em;
+  font-weight: 600;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  width: 0;
+  text-align: center;
+  animation: typing 3s steps(40, end) forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 span {
   width: 10em;
   height: 10em;
@@ -56,12 +141,12 @@ span {
   border: black 1px solid;
 }
 
-.bg-light{
+.bg-light {
   color: black;
 }
 
-.bg-gray{
-background-color: rgb(71 73 88);
+.bg-gray {
+  background-color: rgb(71 73 88);
 }
 
 .full-width {
@@ -69,7 +154,7 @@ background-color: rgb(71 73 88);
   width: 100vw;
 }
 
-.darker{
+.darker {
   background: rgb(235, 232, 232);
   padding: 0 3em 0 3em;
   border-radius: 2em;
@@ -77,8 +162,7 @@ background-color: rgb(71 73 88);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 30px;
 }
 
-
-.lighter{
+.lighter {
   background: rgb(83, 86, 104);
   padding: 0 3em 0 3em;
   border-radius: 2em;
@@ -101,7 +185,7 @@ background-color: rgb(71 73 88);
   margin: auto auto 4em auto;
 }
 .game {
-  position: relative; 
+  position: relative;
   z-index: 1;
   margin: auto;
 }
@@ -116,8 +200,6 @@ background-color: rgb(71 73 88);
   z-index: -1;
   pointer-events: none;
 }
-
-
 
 span {
   width: 3.7em;

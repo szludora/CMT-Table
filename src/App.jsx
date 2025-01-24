@@ -1,6 +1,4 @@
 import React from "react";
-import "./stars.css";
-import "./App.css";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -11,6 +9,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import useThemeContext from "../contexts/ThemeContext";
 import Col from "react-bootstrap/esm/Col";
+import "./stars.css";
+import "./App.css";
 
 function App() {
   const CMT = new CMTModel();
@@ -58,9 +58,40 @@ function App() {
       <Container
         fluid
         className={`full-width d-flex justify-content-center align-items-center ${darkTheme.bg}`}
-        style={{ height: "100vh" }}
+        style={{ height: "100vh", flexDirection: "column" }}
       >
-        
+        <div className="resultBoxWrapper">
+          <div
+            className={`resultBox ${
+              isCompleted
+                ? matches !== 0
+                  ? isDarkTheme
+                    ? "success-dark"
+                    : "success-light"
+                  : !isDarkTheme
+                  ? "no-success-dark"
+                  : "no-success-light"
+                : ""
+            }`}
+            style={{ display: isCompleted ? "block" : "none" }}
+          >
+            <div className="result">
+              {isCompleted ? (
+                matches !== 0 ? (
+                  <p>
+                    &nbsp;&nbsp;&nbsp;Congratulations, {name}! You have{" "}
+                    {matches} lines!
+                  </p>
+                ) : (
+                  <p>&nbsp;&nbsp;&nbsp;You have no lines, try again!</p>
+                )
+              ) : (
+                <p style={{ visibility: "hidden" }}></p>
+              )}
+            </div>
+          </div>
+        </div>
+
         <div className={`${darkTheme.game} game`}>
           <h3 style={{ paddingTop: "2em", paddingBottom: "2em" }}>
             CMT Table Game
@@ -80,15 +111,15 @@ function App() {
                 </Form.Group>
                 <Row>
                   <Button
-                    variant="primary"
+                    className="submitButton"
                     type="submit"
                     style={{ margin: "1em 1em 2em auto", width: "4em" }}
                   >
                     Start
                   </Button>
                   <Button
+                    className="themeButton"
                     onClick={toggleTheme}
-                    variant="primary"
                     style={{ margin: "1em auto 2em auto", width: "8em" }}
                   >
                     Toggle Theme
@@ -105,33 +136,19 @@ function App() {
                   setCounter={setCounter}
                   counter={counter}
                   getHighlightedIndices={CMT.getHighlightedIndices}
-                >
-                </CMTTable>
+                ></CMTTable>
               </div>
-              {isCompleted ? (
-                matches !== 0 ? (
-                  <p style={{ display: "block" }}>
-                    Congratulations, {name}! You have {matches} lines!
-                  </p>
-                ) : (
-                  <p style={{ display: "block" }}>
-                    You have no lines, try again!
-                  </p>
-                )
-              ) : (
-                <p style={{ visibility: "hidden" }}></p>
-              )}
               <div className="fade-in">
                 <Button
+                  className="resetButton"
                   onClick={reset}
-                  variant="primary"
                   style={{ margin: "auto 1em 3em auto", width: "4em" }}
                 >
                   Reset
                 </Button>
                 <Button
+                  className="themeButton"
                   onClick={toggleTheme}
-                  variant="primary"
                   style={{ margin: "auto auto 3em 1em", width: "8em" }}
                 >
                   Toggle Theme
