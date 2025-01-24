@@ -1,8 +1,12 @@
-# React + Vite
+CMT Board Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The game is a grid-based puzzle where the player must match consecutive elements in rows, columns, or diagonals, displaying the result after each round. You can change the theme for your liking and reset the game.
 
-Currently, two official plugins are available:
+![image](https://github.com/user-attachments/assets/0e0ebcc9-398a-427f-ada5-4de172fefa36)
+![image](https://github.com/user-attachments/assets/77680f95-9a53-4dad-824f-58fc116e8296)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+[[
+github page]](https://szludora.github.io/cmtTest2/)
+
+Made with vite + react
