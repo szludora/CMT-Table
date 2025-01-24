@@ -56,7 +56,7 @@ function App() {
             CMT Table Game
           </h3>
           {!submitted ? (
-            <Col xs={12} sm={12} md={10} lg={8} className="mx-auto">
+            <Col xs={12} sm={12} md={12} lg={12} className="mx-auto">
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label className="mb-3">Enter your name:</Form.Label>
@@ -68,14 +68,26 @@ function App() {
                     required
                   />
                 </Form.Group>
-
-                <Button variant="primary" type="submit" className="mb-5 mt-2">
-                  Start Game
-                </Button>
+                <Row>
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    style={{ margin: "auto 1em auto auto", width: "4em" }}
+                  >
+                    Start
+                  </Button>
+                  <Button
+                    onClick={toggleTheme}
+                    variant="primary"
+                    style={{ margin: "auto auto auto auto", width: "8em" }}
+                  >
+                    Toggle Theme
+                  </Button>
+                </Row>
               </Form>
             </Col>
           ) : (
-            <Row>
+            <Col xs={12} sm={12} md={12} lg={12}>
               <div className="fade-in">
                 <CMTTable
                   fields={fields}
@@ -102,7 +114,7 @@ function App() {
                 <Button
                   onClick={reset}
                   variant="primary"
-                  style={{ margin: "auto 1em 2em auto", width: "8em" }}
+                  style={{ margin: "auto 1em 2em auto", width: "4em" }}
                 >
                   Reset
                 </Button>
@@ -114,7 +126,7 @@ function App() {
                   Toggle Theme
                 </Button>
               </div>
-            </Row>
+            </Col>
           )}
           <p>Made by: Dóra Szlucska</p>
         </div>
