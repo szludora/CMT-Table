@@ -42,7 +42,8 @@ body {
 }
 
 span {
-  font-size: 3em;
+  width: 10em;
+  height: 10em;
   font-weight: 700;
 }
 
@@ -51,8 +52,6 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 2em;
-  height: 2em;
   border: black 1px solid;
 }
 
@@ -85,8 +84,8 @@ background-color: rgb(81,81,81);
 }
 
 span {
-  width: 40px;
-  height: 40px;
+  width: 3.7em;
+  height: 3.7em;
   display: flex;
   justify-content: center;
   align-items: center;
