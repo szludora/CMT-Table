@@ -72,14 +72,14 @@ function App() {
                   <Button
                     variant="primary"
                     type="submit"
-                    style={{ margin: "auto 1em auto auto", width: "4em" }}
+                    style={{ margin: "2em 1em 2em auto", width: "4em" }}
                   >
                     Start
                   </Button>
                   <Button
                     onClick={toggleTheme}
                     variant="primary"
-                    style={{ margin: "auto auto auto auto", width: "8em" }}
+                    style={{ margin: "2em auto 2em auto", width: "8em" }}
                   >
                     Toggle Theme
                   </Button>
@@ -114,14 +114,14 @@ function App() {
                 <Button
                   onClick={reset}
                   variant="primary"
-                  style={{ margin: "auto 1em 2em auto", width: "4em" }}
+                  style={{ margin: "2em 1em 2em auto", width: "4em" }}
                 >
                   Reset
                 </Button>
                 <Button
                   onClick={toggleTheme}
                   variant="primary"
-                  style={{ margin: "auto auto 2em 1em", width: "8em" }}
+                  style={{ margin: "2em auto 2em 1em", width: "8em" }}
                 >
                   Toggle Theme
                 </Button>
