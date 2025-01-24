@@ -13,16 +13,16 @@ export default function Field(props) {
     if (isHighlighted) {
       switch (value) {
         case 1:
-          return "#0dd60d";
+          return darkTheme.letterG;
         case 2:
-          return "#66b9ff";
+          return darkTheme.letterB;
         case 3:
-          return "#ff7474";
+          return darkTheme.letterR;
         default:
-          return "black";
+          return darkTheme.color;
       }
     }
-    return "black";
+    return darkTheme.color;
   };
 
   useEffect(() => {

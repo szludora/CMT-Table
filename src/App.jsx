@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import "./stars.css";
 import "./App.css";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -21,7 +22,7 @@ function App() {
   const [fields, setFields] = useState(CMT.getFields());
   const [counter, setCounter] = useState(1);
 
-  const { darkTheme, toggleTheme } = useThemeContext();
+  const { darkTheme, toggleTheme, isDarkTheme } = useThemeContext();
 
   useEffect(() => {
     setIsCompleted(CMT.isCompleted());
@@ -47,13 +48,21 @@ function App() {
   };
   return (
     <>
+      <Container>
+        <section class="wrapper">
+          <div id="stars"></div>
+          <div id="stars2"></div>
+          <div id="stars3"></div>
+        </section>
+      </Container>
       <Container
         fluid
         className={`full-width d-flex justify-content-center align-items-center ${darkTheme.bg}`}
         style={{ height: "100vh" }}
       >
-        <div>
-          <h3 style={{ paddingTop: "3em", paddingBottom: "3em" }}>
+        
+        <div className={`${darkTheme.game} game`}>
+          <h3 style={{ paddingTop: "2em", paddingBottom: "2em" }}>
             CMT Table Game
           </h3>
           {!submitted ? (
@@ -73,14 +82,14 @@ function App() {
                   <Button
                     variant="primary"
                     type="submit"
-                    style={{ margin: "2em 1em 2em auto", width: "4em" }}
+                    style={{ margin: "1em 1em 2em auto", width: "4em" }}
                   >
                     Start
                   </Button>
                   <Button
                     onClick={toggleTheme}
                     variant="primary"
-                    style={{ margin: "2em auto 2em auto", width: "8em" }}
+                    style={{ margin: "1em auto 2em auto", width: "8em" }}
                   >
                     Toggle Theme
                   </Button>
@@ -96,7 +105,8 @@ function App() {
                   setCounter={setCounter}
                   counter={counter}
                   getHighlightedIndices={CMT.getHighlightedIndices}
-                ></CMTTable>
+                >
+                </CMTTable>
               </div>
               {isCompleted ? (
                 matches !== 0 ? (
@@ -115,14 +125,14 @@ function App() {
                 <Button
                   onClick={reset}
                   variant="primary"
-                  style={{ margin: "2em 1em 2em auto", width: "4em" }}
+                  style={{ margin: "auto 1em 3em auto", width: "4em" }}
                 >
                   Reset
                 </Button>
                 <Button
                   onClick={toggleTheme}
                   variant="primary"
-                  style={{ margin: "2em auto 2em 1em", width: "8em" }}
+                  style={{ margin: "auto auto 3em 1em", width: "8em" }}
                 >
                   Toggle Theme
                 </Button>
