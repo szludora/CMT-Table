@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import useThemeContext from "../contexts/ThemeContext";
 
 export default function Field(props) {
   const [letter, setLetter] = useState(" ");
   const isHighlighted = [1, 2, 3].some((value) =>
     props.getHighlightedIndices(props.fields, value).includes(props.index)
   );
+  const { darkTheme } = useThemeContext();
 
   const getLetterColor = (value) => {
     if (isHighlighted) {
@@ -61,8 +63,11 @@ export default function Field(props) {
   return (
     <>
       <span
-        className={isHighlighted ? " field highlighted" : "field"}
-        style={{ color: getLetterColor(props.value) }}
+        className={isHighlighted ? "field highlighted" : "field"}
+        style={{
+          color: getLetterColor(props.value),
+          borderColor: darkTheme.bc,
+        }}
         onClick={click}
       >
         {letter}

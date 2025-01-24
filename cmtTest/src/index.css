@@ -22,6 +22,10 @@ body {
   width: 100%;
 }
 
+.white{
+  border-color: white;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -50,6 +54,14 @@ span {
   width: 2em;
   height: 2em;
   border: black 1px solid;
+}
+
+.bg-light{
+  color: black;
+}
+
+.bg-gray{
+background-color: rgb(81,81,81);
 }
 
 .full-width {

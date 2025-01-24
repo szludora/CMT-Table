@@ -6,14 +6,13 @@ export const ThemeProvider = ({ children }) => {
   const [isDarkTheme, setDarkTheme] = useState(true);
 
   const darkTheme = {
-    backgroundColor: isDarkTheme ? "black" : "white",
-    color: isDarkTheme ? "white" : "black",
-    height: "30vh",
-    bg: isDarkTheme ? "bg-dark" : "bg-light",
+    backgroundColor: isDarkTheme ? "white" : "black",
+    color: isDarkTheme ? "black" : "white",
+    bc: isDarkTheme ? "black" : "grey",
+    bg: isDarkTheme ? "bg-light" : "bg-gray",
   };
 
   function toggleTheme() {
-    console.log("Toggle theme");
     setDarkTheme((prevIsDarkTheme) => !prevIsDarkTheme);
   }
 
