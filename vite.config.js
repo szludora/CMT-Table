@@ -1,9 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import replace from '@rollup/plugin-replace';
 
 export default defineConfig({
-  base: '/CMT-Table/',
-  build: {
-    outDir: 'dist',
+  base: '',
+  optimizeDeps: {
+    include: ["react-bootstrap"],
   },
+  plugins: [
+    replace({
+      preventAssignment: true,
+      'use client': '',
+    })
+  ]
 });
