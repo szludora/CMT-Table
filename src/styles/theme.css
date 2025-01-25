@@ -1,0 +1,31 @@
+.darker {
+  background: rgb(83, 86, 104);
+  border: 4px solid rgb(81, 109, 123);
+}
+
+.lighter {
+  background: rgb(235, 232, 232);
+  border: 4px solid rgb(138, 174, 191);
+}
+
+.bg-light {
+  color: black;
+}
+
+.bg-gray {
+  background-color: rgb(71 73 88);
+}
+
+.success-dark {
+  background: rgb(174, 236, 174);
+}
+.success-light {
+  background: rgb(106, 141, 106);
+}
+.no-success-dark {
+  background: rgb(190, 97, 97);
+  color: white;
+}
+.no-success-light {
+  background: rgb(245, 122, 122);
+}

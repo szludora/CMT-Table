@@ -1,0 +1,63 @@
+.resultBoxWrapper {
+  max-width: 100%;
+  max-height: 5em;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.resultBox {
+  border-radius: 2em;
+  padding-right: 4em;
+  margin-top: 3em;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3em;
+  position: relative;
+  animation: slideInFromTop 0.4s ease-out forwards;
+}
+
+.result {
+  margin-top: 10px;
+  align-items: center;
+  border-radius: 2em;
+  padding: 0.4em;
+  font-weight: 600;
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  text-align: center;
+  animation: typing 3s steps(40, end) forwards;
+  animation-delay: 0.4s;
+}
+
+.confetti {
+  position: absolute;
+  z-index: 10;
+  right: 1em;
+  top: 0.4em;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

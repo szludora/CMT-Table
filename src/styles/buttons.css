@@ -1,0 +1,38 @@
+.resetButton {
+  margin: 1em 1em 2em auto;
+  width: 4em;
+}
+
+.resetButton {
+  border: none;
+  background: rgb(37, 159, 239);
+}
+
+.resetButton:hover {
+  background: rgb(25, 108, 164);
+}
+
+.submitButton {
+  margin: 1em 1em 2em auto;
+  width: 4em;
+}
+
+.submitButton {
+  border: none;
+  background: rgb(37, 159, 239);
+}
+
+.submitButton:hover {
+  background: rgb(25, 108, 164);
+}
+
+.themeButton {
+  margin: 1em 1em 2em auto;
+  width: 8em;
+  border: none;
+  background: rgb(96, 100, 100);
+}
+
+.themeButton:hover {
+  background: rgb(46, 46, 46);
+}

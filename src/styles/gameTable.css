@@ -1,0 +1,53 @@
+#cmtTable {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  width: 100%;
+  max-width: 32em;
+  text-align: center;
+  margin: auto auto 2em auto;
+}
+
+.field {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: black 1px solid;
+}
+
+span {
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  text-align: center;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+.game {
+  position: relative;
+  z-index: 1;
+  margin: auto;
+  padding: 0 3em 0 3em;
+  border-radius: 2em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 30px;
+}
+
+h3 {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
