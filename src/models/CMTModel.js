@@ -6,13 +6,31 @@ export default class CMTModel {
 
   constructor() {
     this.#fields = Array(25).fill(0);
-    // this.#fields = [
-    //   0, 2, 2, 2, 2,
-    //   3, 1, 1, 2, 1,
-    //   2, 3, 3, 2, 3,
-    //   1, 1, 2, 1, 2,
-    //   3, 1, 2, 3, 1,
-    // ];
+
+    // for testing success results
+
+    /*
+    this.#fields = [
+      0, 2, 2, 2, 2,
+      3, 1, 1, 2, 1,
+      2, 3, 3, 2, 3,
+      1, 1, 2, 1, 2,
+      3, 1, 2, 3, 1,
+    ];
+    */
+   
+    // for testing failed results
+
+    /*
+    this.#fields = [
+      0, 2, 1, 2, 2,
+      3, 1, 1, 3, 1,
+      2, 3, 3, 2, 3,
+      1, 1, 2, 1, 2,
+      3, 1, 2, 3, 1,
+    ];
+    */
+
     this.#m = 0;
     this.#isProcessing = false;
     this.#isCompleted = false;

@@ -10,7 +10,7 @@ import "./App.css";
 function App() {
   const { fields, CMT, setMatches, setIsCompleted, isCompleted, counter } =
     useDataContext();
-  const { darkTheme } = useThemeContext();
+  const { theme } = useThemeContext();
 
   useEffect(() => {
     setIsCompleted(CMT.isCompleted());
@@ -20,10 +20,7 @@ function App() {
   return (
     <>
       <Background />
-      <Container
-        fluid
-        className={`full-width d-flex justify-content-center align-items-center ${darkTheme.bg}`}
-      >
+      <Container fluid className={theme}>
         <GameApp />
       </Container>
     </>

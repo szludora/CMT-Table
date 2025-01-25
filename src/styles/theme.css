@@ -1,39 +1,82 @@
-.darker {
-  background: rgb(83, 86, 104);
-  border: 4px solid rgb(81, 109, 123);
+.light-theme,
+.dark-theme {
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  margin-left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.lighter {
-  background: rgb(255, 255, 255);
-  border: 4px solid rgb(138, 174, 191);
-}
-
-.bg-light {
+.light-theme {
   color: black;
   background-color: rgb(238, 242, 255) !important;
 }
 
-.bg-gray {
+.dark-theme {
   background-color: rgb(71 73 88);
 }
 
-.success-dark {
+.dark-theme .game {
+  background: rgb(83, 86, 104);
+  border: 4px solid rgb(81, 109, 123);
+}
+
+.light-theme .game {
+  background: rgb(255, 255, 255);
+  border: 4px solid rgb(138, 174, 191);
+}
+
+.dark-theme .success {
   background: rgb(106, 141, 106);
 }
 
-.success-light {
+.light-theme .success {
   background: rgb(174, 236, 174);
 }
 
-.no-success-dark {
+.dark-theme .no-success {
   background: rgb(190, 97, 97);
   color: white;
 }
 
-.no-success-light {
+.light-theme .no-success {
   background: rgb(245, 122, 122);
 }
 
-.dark-input {
+.dark-theme input {
   background-color: #e5e6e9 !important;
+}
+
+.dark-theme .letterG {
+  color: rgb(13, 214, 13);
+}
+
+.dark-theme .letterB {
+  color: rgb(102, 185, 255);
+}
+
+.dark-theme .letterR {
+  color: rgb(255, 116, 116);
+}
+
+.light-theme .letterG {
+  color: rgb(28, 123, 28);
+}
+
+.light-theme .letterB {
+  color: rgb(8, 108, 192);
+}
+
+.light-theme .letterR {
+  color: rgb(218, 0, 0);
+}
+
+.light-theme a {
+  color: black;
+}
+
+.dark-theme a {
+  color: white;
 }

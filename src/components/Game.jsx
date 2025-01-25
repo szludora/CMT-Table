@@ -10,7 +10,7 @@ export default function Game() {
   const { reset } = useDataContext();
 
   return (
-    <Col xs={12} sm={12} md={12} lg={12}>
+    <Col xs={12}>
       <div className="fade-in">
         <CMTTable />
       </div>

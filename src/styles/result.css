@@ -10,7 +10,7 @@
 .resultBox {
   border-radius: 2em;
   padding-right: 4em;
-  margin-top: 3em;
+  margin-bottom: 2em;
   max-width: 100%;
   display: flex;
   justify-content: center;
@@ -29,12 +29,11 @@
   font-size: 12px;
   overflow: hidden;
   white-space: nowrap;
-  width: 100%;
+  width: 0%;
   text-align: center;
   display: inline-block;
-  text-align: center;
   animation: typing 3s steps(40, end) forwards;
-  animation-delay: 0.4s;
+  animation-delay: 0.2s;
 }
 
 .confetti {
@@ -46,7 +45,7 @@
 
 @keyframes typing {
   from {
-    width: 0;
+    width: 0%;
   }
   to {
     width: 100%;

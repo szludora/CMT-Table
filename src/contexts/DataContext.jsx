@@ -23,16 +23,14 @@ export const DataProvider = ({ children }) => {
   };
 
   const handleSubmit = (event) => {
-    console.log("asd");
-
     event.preventDefault();
     if (name.trim()) {
       setSubmitted(true);
     }
   };
+
   const reset = () => {
     setCounter(1);
-    console.log("Resetting fields:", fields);
     CMT.resetFields();
     const newFields = CMT.getFields();
     setFields(newFields);

@@ -8,24 +8,21 @@ export default function CMTTable() {
   const audioRef = useRef(null);
 
   const click = (event) => {
-    if (event.target.innerHTML === " ") {
+    console.log(event.target);
+
+    if (event.target.innerHTML == " ") {
       if (audioRef.current) {
         audioRef.current.currentTime = 0;
         audioRef.current.play();
       }
-
-      if (counter === 3) {
-        setCounter(1);
-      } else {
-        setCounter((counter % 3) + 1);
-      }
+      setCounter((counter % 3) + 1);
     }
   };
 
   return (
     <div id="cmtTable" onClick={click}>
       {fields.map((field, index) => (
-        <Field key={index} index={index} value={field} />
+        <Field key={index} index={index} value={field}  />
       ))}
       <audio ref={audioRef}>
         <source src={placing} type="audio/wav" />

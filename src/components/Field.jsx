@@ -1,7 +1,6 @@
 import React from "react";
 import useDataContext from "../contexts/DataContext";
 import { useState, useEffect } from "react";
-import useThemeContext from "../contexts/ThemeContext";
 
 export default function Field(props) {
   const [letter, setLetter] = useState(" ");
@@ -12,22 +11,19 @@ export default function Field(props) {
     getHighlightedIndices(fields, value).includes(props.index)
   );
 
-  const { darkTheme } = useThemeContext();
-
   const getLetterColor = (value) => {
     if (isHighlighted) {
       switch (value) {
         case 1:
-          return darkTheme.letterG;
+          return "letterG";
         case 2:
-          return darkTheme.letterB;
+          return "letterB";
         case 3:
-          return darkTheme.letterR;
+          return "letterR";
         default:
-          return darkTheme.color;
+          return "letter";
       }
     }
-    return darkTheme.color;
   };
 
   useEffect(() => {
@@ -47,8 +43,8 @@ export default function Field(props) {
     }
   }, [props.value]);
 
-  const click = (event) => {
-    if (event.target.innerHTML == " ") {
+  const click = () => {
+    if (letter == " ") {
       switch (counter) {
         case 1:
           setStatus(props.index, 1);
@@ -67,16 +63,8 @@ export default function Field(props) {
   };
 
   return (
-    <>
-      <span
-        style={{
-          color: getLetterColor(props.value),
-          borderColor: darkTheme.bc,
-        }}
-        onClick={click}
-      >
-        {letter}
-      </span>
-    </>
+    <span className={`${getLetterColor(props.value)}`} onClick={click}>
+      {letter}
+    </span>
   );
 }
