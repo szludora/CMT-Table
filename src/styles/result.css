@@ -42,6 +42,10 @@
   animation-delay: 0.1s;
 }
 
+.failed-result{
+  margin-top: 15px;
+}
+
 .confetti {
   position: absolute;
   z-index: 10;

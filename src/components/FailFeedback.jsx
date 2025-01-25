@@ -3,7 +3,7 @@ import fail from "../sounds/fail.wav"
 
 export default function FailFeedback() {
   return (
-    <div>
+    <div className="failed-result">
       <audio autoPlay>
         <source src={fail} type="audio/wav" />
       </audio>
