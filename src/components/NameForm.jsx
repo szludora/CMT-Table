@@ -11,13 +11,14 @@ export default function NameForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3" controlId="formName">
         <Form.Label className="mb-3">Enter your name:</Form.Label>
         <Form.Control
           type="text"
           placeholder=""
           value={name}
           onChange={handleNameChange}
+          autoComplete="new-name"
           required
         />
       </Form.Group>
