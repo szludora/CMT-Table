@@ -17,19 +17,22 @@
 }
 
 .success-dark {
-  background: rgb(174, 236, 174);
-}
-.success-light {
   background: rgb(106, 141, 106);
 }
+
+.success-light {
+  background: rgb(174, 236, 174);
+}
+
 .no-success-dark {
   background: rgb(190, 97, 97);
   color: white;
 }
+
 .no-success-light {
   background: rgb(245, 122, 122);
 }
 
-.dark-input{
-  background-color: #8d8f9b !important
+.dark-input {
+  background-color: #8d8f9b !important;
 }
