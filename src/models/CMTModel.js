@@ -18,7 +18,7 @@ export default class CMTModel {
       3, 1, 2, 3, 1,
     ];
     */
-   
+
     // for testing failed results
 
     /*

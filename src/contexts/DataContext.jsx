@@ -35,6 +35,7 @@ export const DataProvider = ({ children }) => {
     const newFields = CMT.getFields();
     setFields(newFields);
   };
+
   return (
     <DataContext.Provider
       value={{

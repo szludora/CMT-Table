@@ -7,9 +7,17 @@
   visibility: hidden;
 }
 
+.none{
+  display: none;
+}
+
+.block{
+  display: block;
+}
+
 .resultBox {
   border-radius: 2em;
-  padding-right: 4em;
+  padding-right: 5em;
   margin-bottom: 2em;
   max-width: 100%;
   display: flex;
@@ -21,7 +29,6 @@
 }
 
 .result {
-  margin-top: 10px;
   align-items: center;
   border-radius: 2em;
   padding: 0.4em;
@@ -31,9 +38,8 @@
   white-space: nowrap;
   width: 0%;
   text-align: center;
-  display: inline-block;
   animation: typing 3s steps(40, end) forwards;
-  animation-delay: 0.2s;
+  animation-delay: 0.1s;
 }
 
 .confetti {
