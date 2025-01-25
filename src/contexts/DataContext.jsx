@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from "react";
+import React, { createContext, useState, useContext } from "react";
 import CMTModel from "../models/CMTModel";
 
 const DataContext = createContext();
@@ -6,71 +6,57 @@ const DataContext = createContext();
 export const DataProvider = ({ children }) => {
   const CMT = new CMTModel();
 
-  const [matches, setMatches] = useState(0);
-  const [fields, setFields] = useState(CMT.getFields());
-  const [getMatches, setGetMatches] = useState(CMT.getMatches(fields));
+  const [isCompleted, setIsCompleted] = useState(false);
   const [name, setName] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [counter, setCounter] = useState(1);
-  const [isCompleted, setIsCompleted] = useState(CMT.getIsCompleted());
-
-  const getHighlightedIndices = (fields, value) => {
-    return CMT.getHighlightedIndices(fields, value);
-  };
-
-  const setStatus = (id, counter) => {
-    CMT.setStatus(id, counter);
-    setFields(CMT.getFields());
-  };
-
-  const resetFields = () => {
-    CMT.resetFields();
-    setFields(CMT.getFields());
-  };
-
-  useEffect(() => {
-    setGetMatches(CMT.getMatches(fields));
-  }, [fields]);
-  const reset = () => {
-    setCounter(1);
-    resetFields();
-    const newFields = CMT.getFields();
-    setFields(newFields);
-  };
+  const [matches, setMatches] = useState(0);
+  const setStatus = (id, counter) => CMT.setStatus(id, counter);
+  const [fields, setFields] = useState(CMT.getFields());
 
   const handleNameChange = (event) => {
     setName(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (name.trim()) {
-      setIsSubmitted(true);
-    }
+  const getHighlightedIndices = (fields, value) => {
+    return CMT.getHighlightedIndices(fields, value);
   };
 
+  const handleSubmit = (event) => {
+    console.log("asd");
+
+    event.preventDefault();
+    if (name.trim()) {
+      setSubmitted(true);
+    }
+  };
+  const reset = () => {
+    setCounter(1);
+    console.log("Resetting fields:", fields);
+    CMT.resetFields();
+    const newFields = CMT.getFields();
+    setFields(newFields);
+  };
   return (
     <DataContext.Provider
       value={{
         CMT,
+        getHighlightedIndices,
+        reset,
+        fields,
+        setFields,
+        setStatus,
         matches,
         setMatches,
         name,
-        setName,
-        isSubmitted,
-        setIsSubmitted,
-        fields,
-        setFields,
         counter,
         setCounter,
-        setStatus,
-        reset,
-        getMatches,
-        handleNameChange,
-        handleSubmit,
         isCompleted,
         setIsCompleted,
-        getHighlightedIndices,
+        handleNameChange,
+        handleSubmit,
+        submitted,
+        setSubmitted,
       }}
     >
       {children}
@@ -78,6 +64,6 @@ export const DataProvider = ({ children }) => {
   );
 };
 
-export default function useThemeContext() {
+export default function useDataContext() {
   return useContext(DataContext);
 }

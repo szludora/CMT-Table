@@ -8,6 +8,9 @@ export default function Background() {
         <div id="stars"></div>
         <div id="stars2"></div>
         <div id="stars3"></div>
+        <div id="stars4"></div>
+        <div id="stars5"></div>
+        <div id="stars6"></div>
       </section>
     </Container>
   );

@@ -1,12 +1,14 @@
 import React from "react";
 import useDataContext from "../contexts/DataContext";
 import useThemeContext from "../contexts/ThemeContext";
+
 import SuccessFeedback from "./SuccesFeedback";
 import FailFeedback from "./FailFeedback";
 
 export default function Result() {
   const { isCompleted, matches } = useDataContext();
   const { isDarkTheme } = useThemeContext();
+
   return (
     <div className="resultBoxWrapper">
       <div
@@ -26,12 +28,12 @@ export default function Result() {
         <div className="result">
           {isCompleted ? (
             matches !== 0 ? (
-              <SuccessFeedback/>
+              <SuccessFeedback />
             ) : (
-              <FailFeedback/>
+              <FailFeedback />
             )
           ) : (
-            <p style={{ visibility: "hidden" }}></p>
+            <p className="hidden"></p>
           )}
         </div>
       </div>

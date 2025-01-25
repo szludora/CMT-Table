@@ -4,9 +4,8 @@ import Field from "./Field";
 import placing from "../sounds/placing.wav";
 
 export default function CMTTable() {
-  const audioRef = useRef(null);
-
   const { counter, setCounter, fields } = useDataContext();
+  const audioRef = useRef(null);
 
   const click = (event) => {
     if (event.target.innerHTML === " ") {

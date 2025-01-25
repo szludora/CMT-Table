@@ -1,6 +1,5 @@
 import React from "react";
-import useDataContext from "../contexts/DataContext";
-import yey from "../sounds/yey.mp3";
+import fail from "../sounds/fail.wav"
 
 export default function FailFeedback() {
   return (

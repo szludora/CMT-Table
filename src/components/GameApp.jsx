@@ -7,23 +7,24 @@ import NameForm from "./NameForm";
 import Game from "./Game";
 
 export default function GameApp() {
-  const { isSubmitted } = useDataContext();
+  const { submitted } = useDataContext();
   const { darkTheme } = useThemeContext();
 
   return (
     <>
-      <Result />
+      <Result/>
 
       <div className={`${darkTheme.game} game`}>
-        <h3 style={{ paddingTop: "2em", paddingBottom: "2em" }}>
+        <h3 >
           CMT Table Game
         </h3>
-        {!isSubmitted ? (
+        {!submitted ? (
           <Col xs={12} sm={12} md={12} lg={12} className="mx-auto">
-            <NameForm />
+            <NameForm/>
           </Col>
         ) : (
-          <Game/>
+          <Game
+          />
         )}
         <p>Made by: Dóra Szlucska</p>
       </div>

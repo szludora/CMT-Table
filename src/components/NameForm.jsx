@@ -6,8 +6,9 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 
 export default function NameForm() {
-  const { handleSubmit, name, handleNameChange } = useDataContext();
+  const { name, handleNameChange, handleSubmit } = useDataContext();
   const { toggleTheme } = useThemeContext();
+
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -21,18 +22,10 @@ export default function NameForm() {
         />
       </Form.Group>
       <Row>
-        <Button
-          className="submitButton"
-          type="submit"
-          style={{ margin: "auto auto 2em auto", width: "4em" }}
-        >
+        <Button className="submitButton" type="submit">
           Start
         </Button>
-        <Button
-          className="themeButton"
-          onClick={toggleTheme}
-          style={{ margin: "auto auto 2em auto", width: "8em" }}
-        >
+        <Button className="themeButton" onClick={toggleTheme}>
           Toggle Theme
         </Button>
       </Row>

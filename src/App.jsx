@@ -1,33 +1,30 @@
-import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
+import React, { useEffect, useState } from "react";
 import useThemeContext from "./contexts/ThemeContext";
-import useDataContext from "./contexts/DataContext";
 import GameApp from "./components/GameApp";
-
+import useDataContext from "./contexts/DataContext";
 import Background from "./components/Background";
 import "./stars.css";
 import "./App.css";
 
 function App() {
+  const { fields, CMT, setMatches, setIsCompleted, isCompleted, counter } =
+    useDataContext();
   const { darkTheme } = useThemeContext();
 
-  const { CMT, setMatches, fields, counter, getMatches, setIsCompleted } =
-    useDataContext();
-
   useEffect(() => {
-    setIsCompleted(CMT.getIsCompleted());
-    setMatches(getMatches);
-  }, [counter, fields]);
+    setIsCompleted(CMT.isCompleted());
+    setMatches(CMT.getMatches(fields));
+  }, [isCompleted, counter]);
 
   return (
     <>
-      <Background/>
+      <Background />
       <Container
         fluid
         className={`full-width d-flex justify-content-center align-items-center ${darkTheme.bg}`}
-        style={{ height: "100vh", flexDirection: "column" }}
       >
-        <GameApp/>
+        <GameApp />
       </Container>
     </>
   );
