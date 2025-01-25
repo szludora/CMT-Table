@@ -1,5 +1,5 @@
 import Container from "react-bootstrap/Container";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import useThemeContext from "./contexts/ThemeContext";
 import GameApp from "./components/GameApp";
 import useDataContext from "./contexts/DataContext";

@@ -5,29 +5,30 @@ export default class CMTModel {
   #isCompleted;
 
   constructor() {
-    this.#fields = Array(25).fill(0);
+    this.#fields = Array(25).fill(" ");
 
     // for testing success results
 
     /*
     this.#fields = [
-      0, 2, 2, 2, 2,
-      3, 1, 1, 2, 1,
-      2, 3, 3, 2, 3,
-      1, 1, 2, 1, 2,
-      3, 1, 2, 3, 1,
+      " ", "M", "M", "M", "M",
+      "T", "C", "C", "M", "C",
+      "M", "T", "T", "M", "T",
+      "C", "C", "M", "C", "M",
+      "T", "C", "M", "T", "C",
     ];
+
     */
 
     // for testing failed results
 
     /*
     this.#fields = [
-      0, 2, 1, 2, 2,
-      3, 1, 1, 3, 1,
-      2, 3, 3, 2, 3,
-      1, 1, 2, 1, 2,
-      3, 1, 2, 3, 1,
+      " ", "M", "C", "M", "M",
+      "T", "C", "C", "T", "C",
+      "M", "T", "T", "M", "T",
+      "C", "C", "M", "C", "M",
+      "T", "C", "M", "T", "C",
     ];
     */
 
@@ -50,7 +51,7 @@ export default class CMTModel {
   }
 
   resetFields() {
-    this.#fields = Array(25).fill(0);
+    this.#fields = Array(25).fill(" ");
     this.#isCompleted = false;
   }
 
@@ -112,9 +113,11 @@ export default class CMTModel {
       }
     }
 
-    const hasZero = fields.some((field) => field === 0);
-    if (!hasZero) {
+    const hasEmpty = fields.some((field) => field === " ");
+    console.log("hasEmpty", hasEmpty, fields);
+    if (!hasEmpty) {
       this.#isCompleted = true;
+      console.log("hasEmpty", "completed");
     }
 
     this.#isProcessing = false;
@@ -155,8 +158,7 @@ export default class CMTModel {
     for (let row = 0; row < size; row++) {
       for (let col = 0; col < size; col++) {
         const currentField = fields[row * size + col];
-
-        if (currentField === 0) continue;
+        if (currentField === " ") continue;
 
         directions.forEach((direction) => {
           const match = findMatch(row, col, direction);

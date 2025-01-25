@@ -3,22 +3,20 @@ import useDataContext from "../contexts/DataContext";
 import { useState, useEffect } from "react";
 
 export default function Field(props) {
-  const [letter, setLetter] = useState(" ");
-  const { counter, setStatus, fields, getHighlightedIndices } =
-    useDataContext();
+  const { getHighlightedIndices, fields } = useDataContext();
 
-  const isHighlighted = [1, 2, 3].some((value) =>
+  const isHighlighted = ['C', 'M', 'T'].some((value) =>
     getHighlightedIndices(fields, value).includes(props.index)
   );
 
-  const getLetterColor = (value) => {
+  const getLetterColor = (letter) => {
     if (isHighlighted) {
-      switch (value) {
-        case 1:
+      switch (letter) {
+        case "C":
           return "letterG";
-        case 2:
+        case "M":
           return "letterB";
-        case 3:
+        case "T":
           return "letterR";
         default:
           return "letter";
@@ -26,45 +24,9 @@ export default function Field(props) {
     }
   };
 
-  useEffect(() => {
-    switch (props.value) {
-      case 1:
-        setLetter("C");
-        break;
-      case 2:
-        setLetter("M");
-        break;
-      case 3:
-        setLetter("T");
-        break;
-      default:
-        setLetter(" ");
-        break;
-    }
-  }, [props.value]);
-
-  const click = () => {
-    if (letter == " ") {
-      switch (counter) {
-        case 1:
-          setStatus(props.index, 1);
-          fields[props.index] = 1;
-          break;
-        case 2:
-          setStatus(props.index, 2);
-          fields[props.index] = 2;
-          break;
-        case 3:
-          setStatus(props.index, 3);
-          fields[props.index] = 3;
-          break;
-      }
-    }
-  };
-
   return (
-    <span className={`${getLetterColor(props.value)}`} onClick={click}>
-      {letter}
+    <span className={`${getLetterColor(props.letter)}`} onClick={props.onClick}>
+      {props.letter}
     </span>
   );
 }
