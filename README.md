@@ -1,12 +1,11 @@
-CMT Board Game
-
-The game is a grid-based puzzle where the player must match consecutive elements in rows, columns, or diagonals, displaying the result after each round. You can change the theme for your liking and reset the game.
-
-![image](https://github.com/user-attachments/assets/0e0ebcc9-398a-427f-ada5-4de172fefa36)
-![image](https://github.com/user-attachments/assets/77680f95-9a53-4dad-824f-58fc116e8296)
+# [CMT Board Game](https://szludora.github.io/CMT-Table/)
+This is a game where you can play a similar game to Tic-Tac-Toe, but instead of Xs and Os, you play with three units: C, M, and T. If you manage to align at least three identical letters in a row, column, or diagonal, it counts as a match. At the end of the game, the result is displayed depending on your success and how many matches you achieved.
 
 
-[[
-github page]](https://szludora.github.io/CMT-Table/)
+
+![cmtDark (2)](https://github.com/user-attachments/assets/634b7b8d-f1fa-4384-9b12-b93df62dcb0f)
+![cmtLight (2)](https://github.com/user-attachments/assets/1b03f01f-7c29-41db-ac6e-5f67c21a4489)
+
+After cloning my project, you can set up the environment by running the "npm install" and "npm run dev" in your command prompt.
 
 Made with vite + react
