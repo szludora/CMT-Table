@@ -1,12 +1,11 @@
-CMT Board Game
+# [CMT Board Game](https://szludora.github.io/CMT-Table/)
+This is a game where you can play a similar game to Tic-Tac-Toe, but instead of Xs and Os, you play with three units: C, M, and T. If you manage to align at least three identical letters in a row, column, or diagonal, it counts as a match. At the end of the game, the result is displayed depending on your success and how many matches you achieved.
 
-The game is a grid-based puzzle where the player must match consecutive elements in rows, columns, or diagonals, displaying the result after each round. You can change the theme for your liking and reset the game.
+You can switch themes, restart the game, and at the beginning, you need to enter your name, which will be used to display the results.
 
-![image](https://github.com/user-attachments/assets/0e0ebcc9-398a-427f-ada5-4de172fefa36)
-![image](https://github.com/user-attachments/assets/77680f95-9a53-4dad-824f-58fc116e8296)
+![cmtDark (2)](https://github.com/user-attachments/assets/634b7b8d-f1fa-4384-9b12-b93df62dcb0f)
+![cmtLight (2)](https://github.com/user-attachments/assets/1b03f01f-7c29-41db-ac6e-5f67c21a4489)
 
 
-[[
-github page]](https://szludora.github.io/CMT-Table/)
 
 Made with vite + react
