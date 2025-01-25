@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 
 export default function NameForm() {
   const { name, handleNameChange, handleSubmit } = useDataContext();
-  const { toggleTheme } = useThemeContext();
+  const { toggleTheme, isDarkTheme} = useThemeContext();
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -15,6 +15,7 @@ export default function NameForm() {
         <Form.Label className="mb-3">Enter your name:</Form.Label>
         <Form.Control
           type="text"
+          className={isDarkTheme ?  "dark-input" : ""}
           placeholder=""
           value={name}
           onChange={handleNameChange}

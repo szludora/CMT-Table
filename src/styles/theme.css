@@ -29,3 +29,7 @@
 .no-success-light {
   background: rgb(245, 122, 122);
 }
+
+.dark-input{
+  background-color: #8d8f9b !important
+}

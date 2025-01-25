@@ -17,7 +17,7 @@ export default function CMTTable() {
       if (counter === 3) {
         setCounter(1);
       } else {
-        setCounter(counter + 1);
+        setCounter((counter % 3) + 1);
       }
     }
   };
