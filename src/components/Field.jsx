@@ -1,62 +1,45 @@
-import React from 'react';
+import React from "react";
 import { useState, useEffect } from "react";
 import useThemeContext from "../contexts/ThemeContext";
+import useDataContext from "../contexts/DataContext";
 
 export default function Field(props) {
-  const [letter, setLetter] = useState(" ");
-  const isHighlighted = [1, 2, 3].some((value) =>
-    props.getHighlightedIndices(props.fields, value).includes(props.index)
-  );
+  const { setStatus, fields, counter, getHighlightedIndices } =
+    useDataContext();
   const { darkTheme } = useThemeContext();
+
+  const [letter, setLetter] = useState(" ");
+
+  const isHighlighted = [1, 2, 3].some((value) =>
+    getHighlightedIndices(fields, value).includes(props.index)
+  );
 
   const getLetterColor = (value) => {
     if (isHighlighted) {
-      switch (value) {
-        case 1:
-          return darkTheme.letterG;
-        case 2:
-          return darkTheme.letterB;
-        case 3:
-          return darkTheme.letterR;
-        default:
-          return darkTheme.color;
-      }
+      const colorMap = {
+        1: darkTheme.letterG,
+        2: darkTheme.letterB,
+        3: darkTheme.letterR,
+      };
+      return colorMap[value] || darkTheme.color;
     }
     return darkTheme.color;
   };
 
   useEffect(() => {
-    switch (props.value) {
-      case 1:
-        setLetter("C");
-        break;
-      case 2:
-        setLetter("M");
-        break;
-      case 3:
-        setLetter("T");
-        break;
-      default:
-        setLetter(" ");
-        break;
-    }
+    const letterMap = {
+      1: "C",
+      2: "M",
+      3: "T",
+    };
+    setLetter(letterMap[props.value] || " ");
   }, [props.value]);
 
   const click = (event) => {
-    if (event.target.innerHTML == " ") {
-      switch (props.counter) {
-        case 1:
-          props.setStatus(props.index, 1);
-          props.fields[props.index] = 1;
-          break;
-        case 2:
-          props.setStatus(props.index, 2);
-          props.fields[props.index] = 2;
-          break;
-        case 3:
-          props.setStatus(props.index, 3);
-          props.fields[props.index] = 3;
-          break;
+    if (event.target.innerHTML === " ") {
+      if (counter >= 1 && counter <= 3) {
+        setStatus(props.index, counter);
+        fields[props.index] = counter;
       }
     }
   };

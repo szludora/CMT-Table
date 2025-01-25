@@ -1,10 +1,12 @@
 import React from "react";
+import useDataContext from "../contexts/DataContext";
+import yey from "../sounds/yey.mp3";
 
-export default function FailFeedback(props) {
+export default function FailFeedback() {
   return (
     <div>
       <audio autoPlay>
-        <source src={props.fail} type="audio/wav" />
+        <source src={fail} type="audio/wav" />
       </audio>
       <picture>
         <source

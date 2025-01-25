@@ -1,18 +1,22 @@
 import React from "react";
+import useDataContext from "../contexts/DataContext";
+import useThemeContext from "../contexts/ThemeContext";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 
-export default function NameForm(props) {
+export default function NameForm() {
+  const { handleSubmit, name, handleNameChange } = useDataContext();
+  const { toggleTheme } = useThemeContext();
   return (
-    <Form onSubmit={props.handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label className="mb-3">Enter your name:</Form.Label>
         <Form.Control
           type="text"
           placeholder=""
-          value={props.name}
-          onChange={props.handleNameChange}
+          value={name}
+          onChange={handleNameChange}
           required
         />
       </Form.Group>
@@ -26,7 +30,7 @@ export default function NameForm(props) {
         </Button>
         <Button
           className="themeButton"
-          onClick={props.toggleTheme}
+          onClick={toggleTheme}
           style={{ margin: "auto auto 2em auto", width: "8em" }}
         >
           Toggle Theme
