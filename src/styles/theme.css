@@ -80,3 +80,9 @@
 .dark-theme a {
   color: white;
 }
+
+.snapshotContainer{
+  width: auto !important;
+  height: auto !important;
+  padding: 3em !important;
+}

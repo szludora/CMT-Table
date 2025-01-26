@@ -1,0 +1,19 @@
+span {
+  aspect-ratio: 1/1;
+  display: flex;
+}
+
+.fade-in {
+  opacity: 1 !important;
+  animation: fadeIn 2s forwards;
+}
+
+.game {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 30px;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

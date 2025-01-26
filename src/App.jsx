@@ -1,10 +1,9 @@
+import React, { useEffect, useRef } from "react";
 import Container from "react-bootstrap/Container";
-import React, { useEffect } from "react";
+import useDataContext from "./contexts/DataContext";
 import useThemeContext from "./contexts/ThemeContext";
 import GameApp from "./components/GameApp";
-import useDataContext from "./contexts/DataContext";
 import Background from "./components/Background";
-import "./stars.css";
 import "./App.css";
 
 function App() {

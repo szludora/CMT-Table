@@ -1,0 +1,14 @@
+span {
+  aspect-ratio: auto;
+  display: block;
+}
+
+.fade-in {
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+.game {
+  box-shadow: none !important;
+}
+

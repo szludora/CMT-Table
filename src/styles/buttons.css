@@ -1,3 +1,9 @@
+.resetButton,
+.submitButton,
+.themeButton {
+  height: 36px;
+}
+
 .resetButton {
   margin: 1em 1em 2em auto;
   width: 4em;
@@ -35,4 +41,63 @@
 
 .themeButton:hover {
   background: rgb(46, 46, 46);
+}
+
+.cameraIcon {
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  animation: clickMe 5s infinite;
+  animation-delay: 2s;
+  cursor: pointer;
+}
+
+.cameraIcon .img {
+  width: 100%;
+  display: block;
+  position: relative;
+  bottom: 10px;
+  height: 100%;
+}
+
+.cameraIcon .img:hover {
+  animation: rotation 0.5s ease-in-out;
+}
+
+.cameraIcon .img img {
+  width: 32px;
+  height: 32px;
+}
+
+.cameraIcon .img::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  left: -20px;
+  top: -20px;
+  position: absolute;
+}
+
+@keyframes rotation {
+  0% {
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes clickMe {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  10% {
+    transform: rotateZ(15deg);
+  }
+  20% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
 }

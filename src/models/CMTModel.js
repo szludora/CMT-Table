@@ -114,10 +114,10 @@ export default class CMTModel {
     }
 
     const hasEmpty = fields.some((field) => field === " ");
-    console.log("hasEmpty", hasEmpty, fields);
+    // console.log("hasEmpty", hasEmpty, fields);
     if (!hasEmpty) {
       this.#isCompleted = true;
-      console.log("hasEmpty", "completed");
+      // console.log("hasEmpty", "completed");
     }
 
     this.#isProcessing = false;
