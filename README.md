@@ -6,6 +6,6 @@ This is a game where you can play a similar game to Tic-Tac-Toe, but instead of 
 ![cmtDark (2)](https://github.com/user-attachments/assets/634b7b8d-f1fa-4384-9b12-b93df62dcb0f)
 ![cmtLight (2)](https://github.com/user-attachments/assets/1b03f01f-7c29-41db-ac6e-5f67c21a4489)
 
-After cloning my project, you can set up the environment by running the "npm install" and "npm run dev" in your command prompt.
+After cloning my project, you can set up the environment by running the "npm install" and "npm run dev" in your command prompt, then open youw browser and type " http://localhost:5173/ ".
 
 Made with vite + react
