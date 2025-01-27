@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import html2canvas from "html2canvas";
 import Button from "react-bootstrap/Button";
 import CMTTable from "./CMTTable";
@@ -6,11 +6,13 @@ import Col from "react-bootstrap/esm/Col";
 import camera from "../assets/camera.png";
 import useDataContext from "../contexts/DataContext";
 import useThemeContext from "../contexts/ThemeContext";
+import takeSnapshot from "../assets/sounds/takeSnapshot.mp3";
 
 export default function Game(props) {
   const { toggleTheme } = useThemeContext();
   const { reset } = useDataContext();
-  const { isUpdated, onUpdate } = props;
+  const { isUpdated } = props;
+  const audioRef = useRef(null);
 
   const addCSS = (fileName) => {
     const link = document.createElement("link");
@@ -61,6 +63,7 @@ export default function Game(props) {
   useEffect(() => {
     if (isUpdated) {
       captureScreenshot();
+      audioRef.current.play();
     }
   }, [isUpdated]);
 
@@ -80,6 +83,9 @@ export default function Game(props) {
         </Button>
         <div className="cameraIcon">
           <div className="img">
+            <audio ref={audioRef} preload="auto">
+              <source src={takeSnapshot} type="audio/mpeg" />
+            </audio>
             <img src={camera} alt="camera" onClick={captureScreenshot} />
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import fail from "../sounds/fail.wav";
+import fail from "../assets/sounds/fail.wav";
 
 export default function FailFeedback() {
   const audioRef = useRef(null);

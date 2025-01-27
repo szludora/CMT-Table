@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import useDataContext from "../contexts/DataContext";
 import Field from "./Field";
-import placing from "../sounds/placing.wav";
+import placing from "../assets/sounds/placing.wav";
 
 const LETTERS = [' ', 'C', 'M', 'T'];
 
