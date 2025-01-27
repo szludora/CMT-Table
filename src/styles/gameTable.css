@@ -37,6 +37,10 @@ span {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 30px;
 }
 
+.gameAndResult{
+  margin: 0 0 1em 0;
+}
+
 h3 {
   padding-bottom: 1em;
 }
