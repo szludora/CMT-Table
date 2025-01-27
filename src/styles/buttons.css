@@ -79,6 +79,25 @@
   position: absolute;
 }
 
+h3 {
+  display: inline-block;
+}
+
+#mute,
+#volume {
+  width: 42px;
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  right: 20px;
+  top: 28px;
+}
+
+#mute {
+  right: 18.2px;
+  top: 28.3px;
+}
+
 @keyframes rotation {
   0% {
   }

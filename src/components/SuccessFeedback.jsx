@@ -3,12 +3,14 @@ import useDataContext from "../contexts/DataContext";
 import yey from "../assets/sounds/yey.mp3";
 
 export default function SuccessFeedback() {
-  const { name, matches } = useDataContext();
+  const { name, matches, isMuted } = useDataContext();
 
   const audioRef = useRef(null);
 
   useEffect(() => {
-    audioRef.current.play();
+    if(!isMuted){
+      audioRef.current.play();
+    }
   }, []);
 
   return (

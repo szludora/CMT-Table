@@ -3,7 +3,7 @@ import html2canvas from "html2canvas";
 import Button from "react-bootstrap/Button";
 import CMTTable from "./CMTTable";
 import Col from "react-bootstrap/esm/Col";
-import camera from "../assets/camera.png";
+import camera from "../assets/images/camera.png";
 import useDataContext from "../contexts/DataContext";
 import useThemeContext from "../contexts/ThemeContext";
 import takeSnapshot from "../assets/sounds/takeSnapshot.mp3";
@@ -86,7 +86,7 @@ export default function Game(props) {
             <audio ref={audioRef} preload="auto">
               <source src={takeSnapshot} type="audio/mpeg" />
             </audio>
-            <img src={camera} alt="camera" onClick={captureScreenshot} />
+            <img src={camera} alt="camera" onClick={props.handleUpdate} />
           </div>
         </div>
       </div>

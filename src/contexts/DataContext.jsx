@@ -13,6 +13,7 @@ export const DataProvider = ({ children }) => {
   const [matches, setMatches] = useState(0);
   const setStatus = (id, counter) => CMT.setStatus(id, counter);
   const [fields, setFields] = useState(CMT.getFields());
+  const [isMuted, setIsMuted] = useState(false);
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -39,7 +40,7 @@ export const DataProvider = ({ children }) => {
     const fieldsCopy = [...fields];
     fieldsCopy[i] = value;
     setFields(fieldsCopy);
-  }
+  };
 
   return (
     <DataContext.Provider
@@ -62,6 +63,8 @@ export const DataProvider = ({ children }) => {
         handleSubmit,
         submitted,
         setSubmitted,
+        isMuted,
+        setIsMuted,
       }}
     >
       {children}

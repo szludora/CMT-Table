@@ -1,11 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import fail from "../assets/sounds/fail.wav";
+import useDataContext from "../contexts/DataContext";
 
 export default function FailFeedback() {
   const audioRef = useRef(null);
+    const {isMuted } = useDataContext();
+  
 
   useEffect(() => {
-    audioRef.current.play();
+    if(!isMuted){
+      audioRef.current.play();
+    }
   }, []);
 
   return (

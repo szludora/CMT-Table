@@ -5,15 +5,27 @@ import Col from "react-bootstrap/esm/Col";
 import Result from "./Result";
 import NameForm from "./NameForm";
 import Game from "./Game";
+import VolumeIcon from "./VolumeIcon";
 
 export default function GameApp() {
-  const { submitted } = useDataContext();
+  const { submitted, isMuted, setIsMuted } = useDataContext();
   const { theme } = useThemeContext();
+
   const snapshotRef = useRef(null);
   const [isUpdated, setIsUpdated] = useState(false);
 
   const handleUpdate = () => {
     setIsUpdated((prev) => !prev);
+  };
+
+  const changeVolume = (event) => {
+    setIsMuted((prev) => !prev);
+
+    document.querySelectorAll("audio").forEach((audio) => {
+      audio.muted = !isMuted;
+    });
+
+    event.target.src = !isMuted ? mute : volume;
   };
 
   return (
@@ -24,6 +36,13 @@ export default function GameApp() {
       <Result />
       <div className="game">
         <h3>CMT Table Game</h3>
+        {submitted ? (
+          <div  onClick={changeVolume}>
+         <VolumeIcon/>
+          </div>
+        ) : (
+          ""
+        )}
         {!submitted ? (
           <Col xs={12}>
             <NameForm />

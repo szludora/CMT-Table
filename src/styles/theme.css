@@ -81,8 +81,19 @@
   color: white;
 }
 
-.snapshotContainer{
+.snapshotContainer {
   width: auto !important;
   height: auto !important;
   padding: 3em !important;
+}
+
+
+.dark-theme #mute,
+.dark-theme #volume {
+  fill: rgb(37, 225, 239)
+}
+
+.light-theme #mute,
+.light-theme #volume {
+  fill: rgb(67, 163, 178);
 }
