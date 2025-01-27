@@ -5,9 +5,9 @@ This is a web-based implementation of the CMT (C, M, T) board game that runs in 
 
 You can try out the [game here](https://szludora.github.io/CMT-Table/).
 
+![cmtDark](https://github.com/user-attachments/assets/8d6e2cc5-8475-4b49-a943-c9b7f63961ce)
+![cmtLight](https://github.com/user-attachments/assets/a3537466-d286-4c5a-815a-faeab7e11401)
 
-![cmtDark (2)](https://github.com/user-attachments/assets/634b7b8d-f1fa-4384-9b12-b93df62dcb0f)
-![cmtLight (2)](https://github.com/user-attachments/assets/1b03f01f-7c29-41db-ac6e-5f67c21a4489)
 
 ## Features
 
@@ -22,6 +22,7 @@ You can try out the [game here](https://szludora.github.io/CMT-Table/).
   - Successful line formation (successful feedback).
   - Failed attempt (failed feedback).
   - Camera action sounds when taking a snapshot.
+- **Enable/disable sounds:** You can turn the sound on or off using the sound icon.
 
 ## Installation
 
@@ -29,7 +30,7 @@ To run the game locally:
 
 1. Clone this repository to your local machine:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/szludora/CMT-Table.git
    ```
 
 2. Install the required dependencies:
@@ -43,8 +44,7 @@ To run the game locally:
    ```
 
 4. Open the game in your browser:
-   - Press `o` in the terminal, or
-   - Visit `http://localhost:5173/` in your browser.
+   - Press `o` in the terminal and press enter
 
 ### Testing
 
