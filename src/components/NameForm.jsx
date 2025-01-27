@@ -9,6 +9,10 @@ export default function NameForm() {
   const { name, handleNameChange, handleSubmit } = useDataContext();
   const { toggleTheme } = useThemeContext();
 
+  const handleFocus = (event) => {
+    event.target.select();
+  };
+
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formName">
@@ -18,6 +22,7 @@ export default function NameForm() {
           className={"input"}
           value={name}
           onChange={handleNameChange}
+          onFocus={handleFocus}
           autoComplete="new-name"
           required
         />

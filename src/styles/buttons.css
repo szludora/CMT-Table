@@ -89,12 +89,12 @@ h3 {
   cursor: pointer;
   display: inline-block;
   position: absolute;
-  right: 20px;
+  right: 5px;
   top: 28px;
 }
 
 #mute {
-  right: 18.2px;
+  right: 4px;
   top: 28.3px;
 }
 
