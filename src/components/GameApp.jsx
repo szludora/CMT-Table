@@ -13,7 +13,7 @@ export default function GameApp() {
   const [isUpdated, setIsUpdated] = useState(false);
 
   const handleUpdate = () => {
-    setIsUpdated(!isUpdated);
+    setIsUpdated((prev) => !prev);
   };
 
   return (
