@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import html2canvas from "html2canvas";
 import Button from "react-bootstrap/Button";
 import CMTTable from "./CMTTable";
@@ -9,7 +9,7 @@ import useThemeContext from "../contexts/ThemeContext";
 
 export default function Game(props) {
   const { toggleTheme } = useThemeContext();
-  const { reset, setIsCompleted } = useDataContext();
+  const { reset } = useDataContext();
 
   const addCSS = (fileName) => {
     const link = document.createElement("link");
@@ -51,8 +51,6 @@ export default function Game(props) {
       link.href = imgUrl;
       link.download = "snapshot.png";
       link.click();
-
-      setIsCompleted(true);
 
       enableAnimations();
     });
