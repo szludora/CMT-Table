@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import useDataContext from "../contexts/DataContext";
 import yey from "../sounds/yey.mp3";
 
 export default function SuccessFeedback() {
   const { name, matches } = useDataContext();
 
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    audioRef.current.play();
+  }, []);
+
   return (
     <div className="confetti-container">
-      <audio autoPlay>
+      <audio ref={audioRef} preload="auto">
         <source src={yey} type="audio/mpeg" />
       </audio>
       &nbsp;&nbsp;&nbsp;Congratulations, {name}! You have {matches} lines!

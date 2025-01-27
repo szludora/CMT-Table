@@ -1,10 +1,16 @@
-import React from "react";
-import fail from "../sounds/fail.wav"
+import React, { useEffect, useRef, useState } from "react";
+import fail from "../sounds/fail.wav";
 
 export default function FailFeedback() {
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    audioRef.current.play();
+  }, []);
+
   return (
     <div className="failed-result">
-      <audio autoPlay>
+      <audio ref={audioRef} preload="auto">
         <source src={fail} type="audio/wav" />
       </audio>
       <picture>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import html2canvas from "html2canvas";
 import Button from "react-bootstrap/Button";
 import CMTTable from "./CMTTable";
@@ -10,6 +10,7 @@ import useThemeContext from "../contexts/ThemeContext";
 export default function Game(props) {
   const { toggleTheme } = useThemeContext();
   const { reset } = useDataContext();
+  const { isUpdated, onUpdate } = props;
 
   const addCSS = (fileName) => {
     const link = document.createElement("link");
@@ -38,6 +39,7 @@ export default function Game(props) {
   };
 
   const captureScreenshot = () => {
+    props.handleUpdate();
     disableAnimations();
 
     html2canvas(props.snapshotRef.current, {
@@ -55,6 +57,12 @@ export default function Game(props) {
       enableAnimations();
     });
   };
+
+  useEffect(() => {
+    if (isUpdated) {
+      captureScreenshot();
+    }
+  }, [isUpdated]);
 
   return (
     <Col xs={12}>
