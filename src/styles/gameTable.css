@@ -28,26 +28,15 @@ span {
   text-align: center;
 }
 
-/* .fade-in {
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-} */
-
 .game {
   position: relative;
   z-index: 1;
   margin: auto;
-  padding: 2em 3em 0 3em;
+  padding: 2em 2em 0 2em;
   border-radius: 2em;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 30px;
 }
 
 h3 {
   padding-bottom: 1em;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
 }

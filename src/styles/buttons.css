@@ -60,7 +60,7 @@
   height: 100%;
 }
 
-.cameraIcon .img:hover {
+.cameraIcon .img:active {
   animation: rotation 0.5s ease-in-out;
 }
 
@@ -118,5 +118,39 @@ h3 {
   }
   100% {
     transform: rotateZ(0deg);
+  }
+}
+
+@media only screen and (max-width: 423px) {
+  .submitAndThemeButtonContainer {
+    position: relative;
+  }
+
+  .themeButton,
+  .submitButton, .resetButton {
+    margin: 0;
+    margin-top: 1em;
+  }
+  .themeButton {
+    margin-right: 0;
+    word-wrap: break-word;
+    height: auto;
+    max-width: 5em;
+    margin-left: auto;
+    margin-bottom: 2em;
+  }
+
+  .submitButton {
+    margin-bottom: 2em;
+    height: auto;
+  }
+  .resetButton{
+    margin-bottom: 2em;
+    height: 3.6em;
+    margin-right: 1em;
+  }
+
+  .cameraIcon{
+    margin-left: 1em;
   }
 }

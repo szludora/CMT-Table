@@ -22,7 +22,7 @@ export default function NameForm() {
           required
         />
       </Form.Group>
-      <Row>
+      <Row className="submitAndThemeButtonContainer">
         <Button className="submitButton" type="submit">
           Start
         </Button>
